@@ -1,6 +1,6 @@
-import { awaitable } from "awaitable";
-import { limiter, limiter_types } from "limiter"
-import { timeout } from "timeout";
+import { awaitable } from "./awaitable";
+import { limiter, limiter_types } from "./limiter"
+import { timeout } from "./timeout";
 
 type QueueDB = {
     [alias: string]: QueueDBItem;
