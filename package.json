@@ -1,6 +1,6 @@
 {
   "name": "tgul",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TypeScript Generalized Utility Library",
   "main": "dist/index.js",
   "scripts": {
