@@ -1,0 +1,39 @@
+{
+  "name": "tgul",
+  "version": "1.0.0",
+  "description": "TypeScript Generalized Utility Library",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsup src/index.ts --dts --watch",
+    "build": "tsup src/index.ts --dts",
+    "test": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PredictabilityIsGood/tgul.git"
+  },
+  "keywords": [
+    "typescript",
+    "utility",
+    "generalized",
+    "queue",
+    "timeout",
+    "awaitable",
+    "debounce",
+    "throttle",
+    "lockout",
+    "limiters"
+  ],
+  "author": "Ryan Montgomery",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PredictabilityIsGood/tgul/issues"
+  },
+  "homepage": "https://github.com/PredictabilityIsGood/tgul#readme",
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}
