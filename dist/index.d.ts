@@ -5,11 +5,6 @@ interface IAwaitable<T> {
 }
 declare const awaitable: <T>() => IAwaitable<T>;
 
-declare const awaitable$1_awaitable: typeof awaitable;
-declare namespace awaitable$1 {
-  export { awaitable$1_awaitable as awaitable };
-}
-
 declare enum limiter_types {
     debounce = 0,
     throttle = 1,
@@ -61,32 +56,10 @@ declare class limiter {
     execute(resolve: limiter_lambda, reject: limiter_lambda): Promise<any>;
 }
 
-declare const limiter$1_debounce: typeof debounce;
-type limiter$1_limiter = limiter;
-declare const limiter$1_limiter: typeof limiter;
-type limiter$1_limiter_types = limiter_types;
-declare const limiter$1_limiter_types: typeof limiter_types;
-declare const limiter$1_lockout: typeof lockout;
-declare const limiter$1_throttle: typeof throttle;
-declare namespace limiter$1 {
-  export { limiter$1_debounce as debounce, limiter$1_limiter as limiter, limiter$1_limiter_types as limiter_types, limiter$1_lockout as lockout, limiter$1_throttle as throttle };
-}
-
 declare const timeout: (milliseconds: number) => Promise<boolean>;
-
-declare const timeout$1_timeout: typeof timeout;
-declare namespace timeout$1 {
-  export { timeout$1_timeout as timeout };
-}
 
 declare const unwrapResponse: (response: any) => Promise<any>;
 declare const handleRequest: (callback: Function) => Promise<any>;
-
-declare const http_handleRequest: typeof handleRequest;
-declare const http_unwrapResponse: typeof unwrapResponse;
-declare namespace http {
-  export { http_handleRequest as handleRequest, http_unwrapResponse as unwrapResponse };
-}
 
 type QueueOptions = {
     queue: string;
@@ -99,13 +72,4 @@ declare const create_queue: (options: QueueOptions) => Promise<void>;
 declare const queue: (options: QueueOptions) => Promise<false | void>;
 declare const update_queue: (options: QueueOptions) => Promise<boolean>;
 
-declare const queue$1_backoff_queue: typeof backoff_queue;
-declare const queue$1_backon_queue: typeof backon_queue;
-declare const queue$1_create_queue: typeof create_queue;
-declare const queue$1_queue: typeof queue;
-declare const queue$1_update_queue: typeof update_queue;
-declare namespace queue$1 {
-  export { queue$1_backoff_queue as backoff_queue, queue$1_backon_queue as backon_queue, queue$1_create_queue as create_queue, queue$1_queue as queue, queue$1_update_queue as update_queue };
-}
-
-export { awaitable$1 as awaitable, http, limiter$1 as limiter, queue$1 as queue, timeout$1 as timeout };
+export { awaitable, backoff_queue, backon_queue, create_queue, debounce, handleRequest, limiter, limiter_types, lockout, queue, throttle, timeout, unwrapResponse, update_queue };

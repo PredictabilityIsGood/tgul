@@ -20,19 +20,24 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var index_exports = {};
 __export(index_exports, {
-  awaitable: () => awaitable_exports,
-  http: () => http_exports,
-  limiter: () => limiter_exports,
-  queue: () => queue_exports,
-  timeout: () => timeout_exports
+  awaitable: () => awaitable,
+  backoff_queue: () => backoff_queue,
+  backon_queue: () => backon_queue,
+  create_queue: () => create_queue,
+  debounce: () => debounce,
+  handleRequest: () => handleRequest,
+  limiter: () => limiter,
+  limiter_types: () => limiter_types,
+  lockout: () => lockout,
+  queue: () => queue,
+  throttle: () => throttle,
+  timeout: () => timeout,
+  unwrapResponse: () => unwrapResponse,
+  update_queue: () => update_queue
 });
 module.exports = __toCommonJS(index_exports);
 
 // src/awaitable.ts
-var awaitable_exports = {};
-__export(awaitable_exports, {
-  awaitable: () => awaitable
-});
 var awaitable = () => {
   let oResolve, oReject;
   const promise = new Promise((resolve, reject) => {
@@ -47,14 +52,6 @@ var awaitable = () => {
 };
 
 // src/limiter.ts
-var limiter_exports = {};
-__export(limiter_exports, {
-  debounce: () => debounce,
-  limiter: () => limiter,
-  limiter_types: () => limiter_types,
-  lockout: () => lockout,
-  throttle: () => throttle
-});
 var limiter_types = /* @__PURE__ */ ((limiter_types2) => {
   limiter_types2[limiter_types2["debounce"] = 0] = "debounce";
   limiter_types2[limiter_types2["throttle"] = 1] = "throttle";
@@ -119,10 +116,6 @@ var limiter = class {
 };
 
 // src/timeout.ts
-var timeout_exports = {};
-__export(timeout_exports, {
-  timeout: () => timeout
-});
 var timeout = async (milliseconds) => {
   const anAwaitable = awaitable();
   setTimeout(() => anAwaitable.resolve(true), milliseconds);
@@ -130,11 +123,6 @@ var timeout = async (milliseconds) => {
 };
 
 // src/http.ts
-var http_exports = {};
-__export(http_exports, {
-  handleRequest: () => handleRequest,
-  unwrapResponse: () => unwrapResponse
-});
 var unwrapResponse = async (response) => {
   return response.ok ? await response.json() : { status: false, data: "request failed" };
 };
@@ -150,14 +138,6 @@ var handleRequest = async (callback) => {
 };
 
 // src/queue.ts
-var queue_exports = {};
-__export(queue_exports, {
-  backoff_queue: () => backoff_queue,
-  backon_queue: () => backon_queue,
-  create_queue: () => create_queue,
-  queue: () => queue,
-  update_queue: () => update_queue
-});
 var queues = {};
 var backoff_queue = async (options) => {
   if (options.queue && options.queue in queues) {
@@ -249,8 +229,17 @@ var start_queue = async (queueDBItem) => {
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   awaitable,
-  http,
+  backoff_queue,
+  backon_queue,
+  create_queue,
+  debounce,
+  handleRequest,
   limiter,
+  limiter_types,
+  lockout,
   queue,
-  timeout
+  throttle,
+  timeout,
+  unwrapResponse,
+  update_queue
 });

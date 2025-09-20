@@ -1,5 +1,5 @@
-export * as awaitable from "./awaitable";
-export * as limiter from  "./limiter";
-export * as timeout from  "./timeout";
-export * as http from "./http";
-export * as queue from "./queue";
+export * from "./awaitable";
+export * from  "./limiter";
+export * from  "./timeout";
+export * from "./http";
+export * from "./queue";
